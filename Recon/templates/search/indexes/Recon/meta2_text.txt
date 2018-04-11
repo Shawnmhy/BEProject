@@ -1,0 +1,5 @@
+{{ object.id }}
+{{ object.user.metabolite1 }}
+{{ object.user.stoichiometry1}}
+{{ object.user.metabolite2}}
+{{ object.user.stoichiometry2}}

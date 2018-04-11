@@ -1,0 +1,33 @@
+<!-- Loads the path to your staticfiles -->
+{% extends 'Recon/Base.html' %}
+{% block reactionsmeta_active %}active{% endblock %}
+{% load static %}
+{% block body %}
+<div class="reactionsmeta-containter container-fluid">
+
+<!-- Reactionsmeta -->
+<div class="row">
+  <div class="col-sm-15">
+     <h3>{{ Reactions_object.id }}</h3>
+  </div>
+{% if Reactions_object %}
+{% for reaction in Reactions_object %}
+  <div class="col-sm-4 col-lg-3">
+     <div class="thumbnail">
+        <a href="{% url 'detail_reaction' reaction.id %}">
+            <img src= "{% static "Recon/images/reactions.png" %}" class="img-responsive">
+        </a>
+     <div class="caption">
+        <h2>{{ reaction.name }}</h2>
+
+     <!-- View Details -->
+     <a href="{% url 'detail_reaction' reaction.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+     </div>
+     </div>
+  </div>
+{% endfor %}
+{% endif %}
+</div>
+</div>
+{% endblock %}
+

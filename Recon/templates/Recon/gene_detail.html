@@ -1,0 +1,52 @@
+<!-- Loads the path to your static files -->
+{% extends 'Recon/Base.html' %}
+{% load static %}
+{% block title %}Gene Details{% endblock %}
+{% block body %}
+<h1>{{ genes.id }}</h1>
+<h2>{{ genes.name}}</h2>
+    <!-- Left Metabolite General -->
+    <div class="col-sm-4 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href="{% url 'gene_detail' genes.id %}">
+                    {% if Gene.id %}
+                        <img src="{% static "Recon/images/BMIE.jpeg" %}" class="img-responsive">
+                    {% else %}
+                        <h3>No image to display</h3>
+                    {% endif %}
+                </a>
+                <h1>{{ genes.id }} <small>{{ genes.name }}</small></h1>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- Right Metabolite information -->
+        <div class="col-sm-8 col-md-8">
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" class="active"><a href="{% url 'gene_detail' genes.id %}">View Genes detail</a></li>
+            </ul>
+               <div class="panel panel-default">
+                  <div class="panel-body">
+                    <table class="table" border="0.5px" >
+                      <thead>
+                          <tr>
+                              <th>id</th>
+                              <th>name</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                          <td>{{ genes.id }}</td>
+                          <td>{{ genes.name }}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+               </div>
+        </div>
+
+
+{% endblock %}

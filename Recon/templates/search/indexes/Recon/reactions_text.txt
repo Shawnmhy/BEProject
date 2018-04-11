@@ -1,0 +1,4 @@
+{{ object.id }}
+{{ object.user.name }}
+{{ object.user.metabolites }}
+{{ object.user.subsystem }}
