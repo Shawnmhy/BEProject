@@ -1,0 +1,527 @@
+{% extends 'Recon/Base for complex.html' %}
+{% load static %}
+{% block title %}Combined Graph{% endblock %}
+{% block body %}
+
+<h1 align="center">
+Selected Reactions:
+</h1>
+<h3 align="center">
+{% for item in graphelement %}
+
+{% if item != '' %}
+<a href="{{ item.get_absolute_url }}" target="_blank">{{ item.id }}</a>，
+{% endif %}
+{% endfor %}
+
+</h3>
+
+<h1 align="center">
+Network Graph for Selected Reactions：
+</h1>
+
+
+<style>
+
+.mouseover {
+  fill: none;
+  stroke: #ff0000;
+  stroke-width: 2.5px;
+}
+
+.link {
+  fill: none;
+  stroke: #666;
+  stroke-width: 1.5px;
+}
+
+#licensing {
+  fill: green;
+}
+
+.link.licensing {
+  stroke: green;
+}
+
+.link.resolved {
+  stroke-dasharray: 0,2 1;
+}
+
+svg {
+  display: block;
+  margin: auto;
+  border: 0px solid gray;
+}
+
+circle {
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 1.5px;
+}
+
+text {
+  font: 15px sans-serif;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
+
+</style>
+
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsnetworkx/0.3.4/jsnetworkx.js"></script>
+<script>
+// http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
+var links = [
+    {% for obj in graphelement %}
+    {% if obj.stoichiometry1 != '' and obj.stoichiometry1 > 0 %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite1_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry1 != '' and obj.stoichiometry1 < 0%}
+    {source: "{{ obj.metabolite1_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry2 != '' and obj.stoichiometry2 > 0 %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite2_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry2 != '' and obj.stoichiometry2 < 0 %}
+    {source: "{{ obj.metabolite2_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry3 != '' and obj.stoichiometry3 > '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite3_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry3 != '' and obj.stoichiometry3 < '0' %}
+    {source: "{{ obj.metabolite3_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry4 != '' and obj.stoichiometry4 > '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite4_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry4 != '' and obj.stoichiometry4 < '0' %}
+    {source: "{{ obj.metabolite4_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry5 != '' and obj.stoichiometry5 > '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite5_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry5 != '' and obj.stoichiometry5 < '0' %}
+    {source: "{{ obj.metabolite5_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry6 != '' and obj.stoichiometry6 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite6_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry6 != '' and obj.stoichiometry6 < '0' %}
+    {source: "{{ obj.metabolite6_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+  {% if obj.stoichiometry7 != '' and obj.stoichiometry7 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite7_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry7 != '' and obj.stoichiometry7 < '0' %}
+    {source: "{{ obj.metabolite7_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+     {% if obj.stoichiometry8 != '' and obj.stoichiometry8 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite8_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry8 != '' and obj.stoichiometry8 < '0' %}
+    {source: "{{ obj.metabolite8_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry9 != '' and obj.stoichiometry9 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite9_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry9 != '' and obj.stoichiometry9 < '0' %}
+    {source: "{{ obj.metabolite9_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+  {% if obj.stoichiometry10 != '' and obj.stoichiometry10 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite10_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry10 != '' and obj.stoichiometry10 < '0' %}
+    {source: "{{ obj.metabolite10_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+     {% if obj.stoichiometry11 != '' and obj.stoichiometry11 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite11_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry11 != '' and obj.stoichiometry11 < '0' %}
+    {source: "{{ obj.metabolite11_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry12 != '' and obj.stoichiometry12 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite12_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry12 != '' and obj.stoichiometry12 < '0' %}
+    {source: "{{ obj.metabolite12_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry13 != '' and obj.stoichiometry13 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite13_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry13 != '' and obj.stoichiometry13 < '0' %}
+    {source: "{{ obj.metabolite13_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+     {% if obj.stoichiometry14 != '' and obj.stoichiometry14 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite14_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry14 != '' and obj.stoichiometry14 < '0' %}
+    {source: "{{ obj.metabolite14_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry15 != '' and obj.stoichiometry15 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite15_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry15 != '' and obj.stoichiometry15 < '0'%}
+    {source: "{{ obj.metabolite15_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+  {% if obj.stoichiometry16 != '' and obj.stoichiometry16 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite1_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry16 != '' and obj.stoichiometry16 < '0'%}
+    {source: "{{ obj.metabolite16_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+     {% if obj.stoichiometry17 != '' and obj.stoichiometry17 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite17_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry17 != '' and obj.stoichiometry17 < '0' %}
+    {source: "{{ obj.metabolite17_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry18 != '' and obj.stoichiometry18 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite18_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry18 != '' and obj.stoichiometry18 < '0' %}
+    {source: "{{ obj.metabolite18_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+  {% if obj.stoichiometry19 != '' and obj.stoichiometry19 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite19_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry19 != '' and obj.stoichiometry19 < '0' %}
+    {source: "{{ obj.metabolite19_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry20 != '' and obj.stoichiometry20 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite20_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry20 != '' and obj.stoichiometry20 < '0' %}
+    {source: "{{ obj.metabolite20_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% if obj.stoichiometry21 != '' and obj.stoichiometry21 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite21_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry21 != '' and obj.stoichiometry21 < '0'%}
+    {source: "{{ obj.metabolite21_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+  {% if obj.stoichiometry22 != '' and obj.stoichiometry22 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite22_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry22 != '' and obj.stoichiometry22 < '0' %}
+    {source: "{{ obj.metabolite22_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+     {% if obj.stoichiometry23 != '' and obj.stoichiometry23 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite23_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry23 != '' and obj.stoichiometry23 < '0' %}
+    {source: "{{ obj.metabolite23_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry24 != '' and obj.stoichiometry24 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite24_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry24 != '' and obj.stoichiometry24 < '0'%}
+    {source: "{{ obj.metabolite24_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+  {% if obj.stoichiometry25 != '' and obj.stoichiometry25 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite25_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry25 != '' and obj.stoichiometry25 < '0' %}
+    {source: "{{ obj.metabolite25_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+     {% if obj.stoichiometry26 != '' and obj.stoichiometry26 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite26_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry26 != '' and obj.stoichiometry26 < '0'%}
+    {source: "{{ obj.metabolite26_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry27 != '' and obj.stoichiometry27 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite27_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry27 != '' and obj.stoichiometry27 < '0' %}
+    {source: "{{ obj.metabolite27_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+  {% if obj.stoichiometry28 != '' and obj.stoichiometry28 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite28_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry28 != '' and obj.stoichiometry28 < '0' %}
+    {source: "{{ obj.metabolite28_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry29 != '' and obj.stoichiometry29 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite29_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry29 != '' and obj.stoichiometry29 < '0'%}
+    {source: "{{ obj.metabolite29_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry30 != '' and obj.stoichiometry30 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite30_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry30 != '' and obj.stoichiometry30 < '0'%}
+    {source: "{{ obj.metabolite30_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+  {% if obj.stoichiometry31 != '' and obj.stoichiometry31 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite31_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry31 != '' and obj.stoichiometry31 < '0' %}
+    {source: "{{ obj.metabolite31_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+{% if obj.stoichiometry32 != '' and obj.stoichiometry32 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite32_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry32 != '' and obj.stoichiometry32 < '0' %}
+    {source: "{{ obj.metabolite32_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+{% if obj.stoichiometry33 != '' and obj.stoichiometry33 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite33_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry33 != '' and obj.stoichiometry33 < '0' %}
+    {source: "{{ obj.metabolite33_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+{% if obj.stoichiometry34 != '' and obj.stoichiometry34 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite31_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry34 != '' and obj.stoichiometry34 < '0' %}
+    {source: "{{ obj.metabolite34_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+{% if obj.stoichiometry35 != '' and obj.stoichiometry35 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite35_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry35 != '' and obj.stoichiometry35 < '0' %}
+    {source: "{{ obj.metabolite35_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+{% if obj.stoichiometry36 != '' and obj.stoichiometry36 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite36_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry36 != '' and obj.stoichiometry36 < '0' %}
+    {source: "{{ obj.metabolite36_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+{% if obj.stoichiometry37 != '' and obj.stoichiometry37 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite37_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry37 != '' and obj.stoichiometry37 < '0' %}
+    {source: "{{ obj.metabolite37_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+{% if obj.stoichiometry38 != '' and obj.stoichiometry38 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite38_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry38 != '' and obj.stoichiometry38 < '0' %}
+    {source: "{{ obj.metabolite38_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry39 != '' and obj.stoichiometry39 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite39_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry39 != '' and obj.stoichiometry39 < '0' %}
+    {source: "{{ obj.metabolite39_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry40 != '' and obj.stoichiometry40 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite40_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry40 != '' and obj.stoichiometry40 < '0'%}
+    {source: "{{ obj.metabolite40_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry41 != '' and obj.stoichiometry41 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite41_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry41 != '' and obj.stoichiometry41 < '0'%}
+    {source: "{{ obj.metabolite41_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry42 != '' and obj.stoichiometry42 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite42_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry42 != '' and obj.stoichiometry42 < '0'%}
+    {source: "{{ obj.metabolite42_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry43 != '' and obj.stoichiometry43 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite43_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry43 != '' and obj.stoichiometry43 < '0'%}
+    {source: "{{ obj.metabolite43_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry44 != '' and obj.stoichiometry44 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite44_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry44 != '' and obj.stoichiometry44 < '0' %}
+    {source: "{{ obj.metabolite44_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry45 != '' and obj.stoichiometry45 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite45_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry45 != '' and obj.stoichiometry45 < '0' %}
+    {source: "{{ obj.metabolite45_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry46 != '' and obj.stoichiometry46 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite46_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry46 != '' and obj.stoichiometry46 < '0'%}
+    {source: "{{ obj.metabolite46_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry47 != '' and obj.stoichiometry47 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite47_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry47 != '' and obj.stoichiometry47 < '0'%}
+    {source: "{{ obj.metabolite47_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry48 != '' and obj.stoichiometry48 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite48_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry48 != '' and obj.stoichiometry48 < '0' %}
+    {source: "{{ obj.metabolite48_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry49 != '' and obj.stoichiometry49 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite49_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry49 != '' and obj.stoichiometry49 < '0'%}
+    {source: "{{ obj.metabolite49_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+     {% if obj.stoichiometry50 != '' and obj.stoichiometry50 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite50_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry50 != '' and obj.stoichiometry50 < '0' %}
+    {source: "{{ obj.metabolite50_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+    {% if obj.stoichiometry51 != '' and obj.stoichiometry51 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite51_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry51 != '' and obj.stoichiometry51 < '0'%}
+    {source: "{{ obj.metabolite51_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+ {% if obj.stoichiometry52 != '' and obj.stoichiometry52 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite52_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry52 != '' and obj.stoichiometry52 < '0' %}
+    {source: "{{ obj.metabolite52_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+ {% if obj.stoichiometry53 != '' and obj.stoichiometry53 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite53_id }}", type: "licensing"},
+     {% elif  obj.stoichiometry53 != '' and obj.stoichiometry53 < '0' %}
+    {source: "{{ obj.metabolite53_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+ {% if obj.stoichiometry54 != '' and obj.stoichiometry54 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite54_id }}", type: "licensing"},
+     {% elif  obj.stoichiometry54 != '' and obj.stoichiometry54 < '0'%}
+    {source: "{{ obj.metabolite54_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+ {% if obj.stoichiometry55 != '' and obj.stoichiometry55 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite55_id }}", type: "licensing"},
+     {% elif  obj.stoichiometry55 != ''  and obj.stoichiometry55 < '0'%}
+    {source: "{{ obj.metabolite55_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+ {% if obj.stoichiometry56 != '' and obj.stoichiometry56 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite56_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry56 != '' and obj.stoichiometry56 < '0'%}
+    {source: "{{ obj.metabolite56_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+ {% if obj.stoichiometry57 != '' and obj.stoichiometry57 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite57_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry57 != '' and obj.stoichiometry57 < '0'%}
+    {source: "{{ obj.metabolite57_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+ {% if obj.stoichiometry58 != '' and obj.stoichiometry58 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite58_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry58 != '' and obj.stoichiometry58 < '0' %}
+    {source: "{{ obj.metabolite58_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+ {% if obj.stoichiometry59 != '' and obj.stoichiometry59 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite59_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry59 != '' and obj.stoichiometry59 < '0' %}
+    {source: "{{ obj.metabolite59_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+ {% if obj.stoichiometry60 != '' and obj.stoichiometry60 >= '0' %}
+    {source: "{{ obj.id }}", target: "{{ obj.metabolite60_id }}", type: "licensing"},
+    {% elif  obj.stoichiometry60 != '' and obj.stoichiometry60 < '0'%}
+    {source: "{{ obj.metabolite60_id }}", target:"{{ obj.id }}", type:"suit"},
+    {% endif %}
+
+    {% endfor%}
+];
+
+var nodes ={  {{ obj.id }}  };
+// Compute the distinct nodes from the links.
+links.forEach(function(link) {
+  link.source = nodes[link.source] || (nodes[link.source] = {name: link.source});
+  link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
+});
+
+var width = 1200,
+    height = 1000;
+
+var force = d3.layout.force()
+    .nodes(d3.values(nodes))
+    .links(links)
+    .size([width, height])
+    .linkDistance(150)
+    .charge(-1000)
+    .on("tick", tick)
+    .start();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6);
+
+svg.append("svg:defs").selectAll("marker")
+    .data(["suit", "licensing", "resolved"])      // Different link/path types can be defined here
+  .enter().append("svg:marker")    // This section adds in the arrows
+    .attr("id", String)
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 15)
+    .attr("refY", -1.5)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+  .append("svg:path")
+    .attr("d", "M0,-5L10,0L0,5");
+
+
+var link = svg.selectAll(".link")
+    .data(force.links())
+    .enter().append("line")
+    .attr("class", "link")
+    .attr("marker-end", function(d) { return "url(#" + d.type + ")"; });
+
+
+
+var node = svg.selectAll(".node")
+    .data(force.nodes())
+  .enter().append("g")
+    .attr("class", "node")
+    .on("mouseover", handleMouseOver)
+    .on("mouseout", handleMouseOut)
+    .call(force.drag);
+
+node.append("circle")
+    .attr("r", 10);
+
+
+node.append("text")
+    .attr("x", 12)
+    .attr("dy", ".35em")
+    .text(function(d) { return d.name; });
+
+
+function tick() {
+  link
+      .attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+  node
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+}
+
+
+    function handleMouseOver(d, i) {  // Add interactivity
+
+            // Use D3 to select element, change color and size
+            d3.select(this).attr({
+              fill: "orange"
+            });
+            link.style('stroke', function(l){
+                    if (d === l.source || d === l.target)
+                        return "red";
+                    else
+                        return "black"
+            });
+            link.style('stroke-width', function(l) {
+				    if (d === l.source || d === l.target)
+				    return 4;
+				  else
+				    return 2;
+				});
+            d3.select(this).select("circle").transition()
+                .attr("r",20);
+
+            // Specify where to put label of text
+            svg.append("text").attr({
+               id: "t" + d.x + "-" + d.y + "-" + i,  // Create an id for text so we can select it later for removing on mouseout
+                x: function() { return xScale(d.x) - 30; },
+                y: function() { return yScale(d.y) - 15; }
+            })
+            .text(function() {
+              return [d.x, d.y];  // Value of the text
+            });
+          }
+
+      function handleMouseOut(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this).attr({
+              fill: "black"
+            });
+            link.style('stroke-width', 2);
+            link.style('stroke', "black");
+
+            d3.select(this).select("circle").transition()
+                .attr("r",8);
+          }
+
+
+
+graph.links.forEach(function(d) {
+      linkedByIndex[d.source.index + "," + d.target.index] = 1;
+      linkedByIndex[d.target.index + "," + d.source.index] = 1;
+    });
+</script>
+</body>
+{% endblock %}

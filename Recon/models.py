@@ -6,8 +6,21 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-from PIL import Image
 from django.forms import ModelForm
+
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=200, help_text="Name of the sender")
+    email = models.EmailField(max_length=200)
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Feedback"
+
+    def __str__(self):
+        return self.name + "-" + self.email
 
 
 class Genes(models.Model):
@@ -60,7 +73,6 @@ class Reactions(models.Model):
 class Reactionsmeta(models.Model):
     id = models.CharField(primary_key=True, max_length=255)
     name = models.CharField(max_length=255, blank=True, null=True)
-    image = models.ImageField(upload_to = 'your_directory_inside_media')
     metabolite1 = models.ForeignKey('Metabolites', db_column='metabolite1',blank=True, null=True, on_delete=models.CASCADE, related_name='+')
     stoichiometry1 = models.FloatField(blank=True, null=True)
     metabolite2 = models.ForeignKey('Metabolites', db_column='metabolite2', max_length=255, blank=True, null=True,

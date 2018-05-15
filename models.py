@@ -17,6 +17,9 @@ class Genes(models.Model):
         managed = False
         db_table = 'Genes'
 
+    def get_absolute_url(self):
+        return "/gene/%s/" % self.id
+
 
 class Metabolites(models.Model):
     id = models.CharField(primary_key=True, max_length=255)
@@ -29,6 +32,9 @@ class Metabolites(models.Model):
     class Meta:
         managed = False
         db_table = 'Metabolites'
+
+    def get_absolute_url(self):
+        return "/metabolite/%s/" % self.id
 
 
 class Reactions(models.Model):
@@ -44,6 +50,9 @@ class Reactions(models.Model):
     class Meta:
         managed = False
         db_table = 'Reactions'
+
+    def get_absolute_url(self):
+        return "/reaction/%s/" % self.id
 
 
 class Reactionsmeta(models.Model):
@@ -173,6 +182,9 @@ class Reactionsmeta(models.Model):
     class Meta:
         managed = False
         db_table = 'ReactionsMeta'
+
+    def get_absolute_url(self):
+        return "/reaction/%s/" % self.id
 
 
 class AuthGroup(models.Model):

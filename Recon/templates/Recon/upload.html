@@ -1,0 +1,21 @@
+{% extends 'Recon/Base.html' %}
+{% load static %}
+{% block title %}Online Analysis{% endblock %}
+{% block body %}
+    <div align="center">
+    <h2>Step 1: Upload SBML format metabolic model: </h2>
+    </div>
+    <div class="row" align="center">
+      <div class="col-md-8 col-md-offset-2">{% csrf_token %}
+          <form class="form-inline" role="form"  method="post" enctype="multipart/form-data" accept-charset="utf-8">{% csrf_token %}
+              {% csrf_token %}
+              <div class="form-group">
+                  <input type="file" name="file" align="center">
+              </div>
+              <div class="form-group">
+                  <input type="submit" value="Upload File">
+              </div>
+          </form>
+      </div>
+    </div>
+{% endblock %}

@@ -32,9 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 
-    'suit',
     'django.contrib.admin',
-    'haystackbrowser',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -155,3 +153,17 @@ STATICFILES_DIRS = [
 
 ]
 STATIC_URL = '/static/'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+SERVER_EMAIL = 'shawnmhy@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = '521DONGBEIDAXUE'
+EMAIL_HOST_USER = SERVER_EMAIL
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+ADMINS = [
+    ('OverIQ', 'infooveriq@gmail.com'),
+]

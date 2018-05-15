@@ -7,9 +7,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsnetworkx/0.3.4/jsnetworkx.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
-<h1>{{ reactionsmeta.id }}</h1>
+<h1>{{ reactionsmeta.id }} (Reaction, ID)</h1>
 <h2>{{ reactionsmeta.name}}</h2>
-    <!-- Left Album Info -->
+    <!-- Left Reaction Info -->
     <div class="col-sm-4 col-md-3">
         <div class="panel panel-default">
             <div class="panel-body">
@@ -26,14 +26,18 @@
     </div>
 
 
-<!-- Right Metabolite information -->
-<!-- Right Song Info -->
-        <div class="col-sm-1 col-md-5" style="width:400px; display: inline-block" >
-            <ul class="nav nav-pills" style="margin-bottom: 10px;">
-                <li role="presentation" class="active"><a href="{% url 'detail_reaction' reactionsmeta.id %}">View Formula detail</a></li>
-            </ul>
-               <div class="panel panel-default" style="float:left; display: inline-block">
-                  <div class="panel-body " style="width:500px; float:left;display:inline-block">
+<!-- Left Metabolite information -->
+<!-- Right Metabolite Info -->
+        <div class="col-sm-8 col-md-8" style="width:600px;" >
+        <div>
+            <div class="col-sm-8 col-md-8" style="width:300px; float:left; display:inline">
+              <!-- 按钮和表格组成的第一小块 -->
+              <div style="width:600px" >
+                  <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                   <li role="presentation" class="active"><a href="{% url 'detail_reaction' reactionsmeta.id %}">View Formula detail</a></li>
+                  </ul>
+                <div class="panel panel-default">
+                  <div class="panel-body " >
                     <table class="table" border="0.5px" style="float:left" >
                       <thead>
                           <tr>
@@ -395,9 +399,55 @@
 
                         </tbody>
                     </table>
-                   <div class="col-sm-1 col-md-8" style="width:600px; float:right; display:inline">
-             <meta charset="utf-8">
-                 <style>
+                  </div>
+                 </div>
+              </div>
+              <!-- 按钮和表格组成的第一小块 -->
+
+              <!-- 按钮和表格组成的第二小块 -->
+               <div style="width:600px">
+                     <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                        <li role="presentation" class="active"><a href="{% url 'detail_reaction' reactionsmeta.id %}">View Reaction detail</a></li>
+                     </ul>
+                     <div class="panel panel-default">
+                        <div class="panel-body">
+                           <table class="table">
+                      <thead>
+                          <tr>
+                              <th>Lower_bound</th>
+                              <th>Upper_bound</th>
+                              <th>Gene_reaction_rule</th>
+                              <th>Subsystem</th>
+                          </tr>
+                      </thead>
+                     <tbody>
+                     {% for reaction in reactions %}
+                     {% if reactionsmeta.id == reaction.id %}
+                     <tr>
+                         <td>{{ reaction.lower_bound }}</td>
+                     <td>{{ reaction.upper_bound }}</td>
+                         {% if reaction.gene_reaction_rule != '' %}
+                     <td>{{ reaction.gene_reaction_rule }}</td>
+                             {% else %}
+                             <td> None </td>
+                             {% endif %}
+                     <td>{{ reaction.subsystem }}</td>
+                     </tr>
+                     {% endif %}
+                     {% endfor %}
+                     </tbody>
+                  </table>
+                         </div>
+                      </div>
+                </div>
+               <!-- 按钮和表格组成的第二小块 -->
+            </div>
+
+               <!-- 由图组成的第三部分 -->
+
+            <div class="col-sm-8 col-md-8" style="width:300px; float:right; display:inline">
+                       <meta charset="utf-8">
+                       <style>
 
 .link {
   fill: none;
@@ -430,10 +480,9 @@ text {
 }
 
 </style>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jsnetworkx/0.3.4/jsnetworkx.js"></script>
-
-<script>
+                       <script src="http://d3js.org/d3.v3.min.js"></script>
+                       <script src="https://cdnjs.cloudflare.com/ajax/libs/jsnetworkx/0.3.4/jsnetworkx.js"></script>
+                       <script>
 
 // http://blog.thomsonreuters.com/index.php/mobile-patent-suits-graphic-of-the-day/
 
@@ -768,7 +817,7 @@ links.forEach(function(link) {
   link.target = nodes[link.target] || (nodes[link.target] = {name: link.target});
 });
 
-var width = 750,
+var width = 500,
     height = 400;
 
 var force = d3.layout.force()
@@ -836,52 +885,13 @@ function transform(d) {
 }
 
 </script>
-
-    </div>
-                  </div>
-
-               </div>
-
-
+             </div>
         </div>
 
-    <div class="col-sm-8 col-md-8">
-            <ul class="nav nav-pills" style="margin-bottom: 10px;">
-                <li role="presentation" class="active"><a href="{% url 'detail_reaction' reactionsmeta.id %}">View Reaction detail</a></li>
-            </ul>
-               <div class="panel panel-default">
-                  <div class="panel-body">
-                  <table class="table">
-                      <thead>
-                          <tr>
-                              <th>Lower_bound</th>
-                              <th>Upper_bound</th>
-                              <th>Gene_reaction_rule</th>
-                              <th>Subsystem</th>
-                          </tr>
-                      </thead>
-                     <tbody>
-                     {% for reaction in reactions %}
-                     {% if reactionsmeta.id == reaction.id %}
-                     <tr>
-                         <td>{{ reaction.lower_bound }}</td>
-                     <td>{{ reaction.upper_bound }}</td>
-                         {% if reaction.gene_reaction_rule != '' %}
-                     <td>{{ reaction.gene_reaction_rule }}</td>
-                             {% else %}
-                             <td> None </td>
-                             {% endif %}
-                     <td>{{ reaction.subsystem }}</td>
-                     </tr>
-                     {% endif %}
-                     {% endfor %}
-                     </tbody>
-                  </table>
-                  </div>
-               </div>
-               </div>
 
-        <div class="col-sm-8 col-md-8">
+
+
+               <div class="col-sm-8 col-md-8" style="width:800px;">
             <ul class="nav nav-pills" style="margin-bottom: 10px;">
                 <li role="presentation" class="active"><a href="{% url 'detail_reaction' reactionsmeta.id %}">View Metabolites detail</a></li>
             </ul>
@@ -900,10 +910,10 @@ function transform(d) {
                       <tbody>
                       {% if reactionsmeta.metabolite1 != ''  %}
                               <tr>
-                              <td>{{ reactionsmeta.metabolite1_id }}</td>
+                                  <td>{{ reactionsmeta.metabolite1_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite1_id %}
-                              <td>{{ metabolite.name }}</td>
+                                      <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -916,7 +926,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite2_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite2_id %}
-                              <td>{{ metabolite.name }}</td>
+                                      <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -929,7 +939,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite3_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite3_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -942,7 +952,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite4_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite4_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -955,7 +965,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite5_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite5_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -968,7 +978,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite6_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite6_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -981,7 +991,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite7_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite7_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -994,7 +1004,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite8_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite8_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1007,7 +1017,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite9_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite9_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1020,7 +1030,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite10_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite10_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1033,7 +1043,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite11_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite11_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1046,7 +1056,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite12_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite12_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1059,7 +1069,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite13_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite13_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1072,7 +1082,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite14_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite14_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1085,7 +1095,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite15_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite15_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1098,7 +1108,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite15_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite15_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1111,7 +1121,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite15_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite15_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1124,7 +1134,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite16_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite16_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1137,7 +1147,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite17_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite17_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1150,7 +1160,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite18_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite18_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1163,7 +1173,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite19_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite19_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1176,7 +1186,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite20_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite20_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1189,7 +1199,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite21_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite21_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1202,7 +1212,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite22_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite22_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1215,7 +1225,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite23_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite23_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1228,7 +1238,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite24_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite24_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1241,7 +1251,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite25_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite235id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1254,7 +1264,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite26_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite26_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1267,7 +1277,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite27_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite27_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1280,7 +1290,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite28_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite28_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1293,7 +1303,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite29_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite29_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1306,7 +1316,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite30_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite30_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1319,7 +1329,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite23_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite23_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1332,7 +1342,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite31_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite31_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1345,7 +1355,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite32_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite32_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1358,7 +1368,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite33_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite33_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1371,7 +1381,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite34_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite35_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1384,7 +1394,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite36_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite36_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1397,7 +1407,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite37_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite37_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1410,7 +1420,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite38_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite38_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1423,7 +1433,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite39_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite39_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1436,7 +1446,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite40_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite40_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1449,7 +1459,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite41_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite41_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1462,7 +1472,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite42_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite42_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1475,7 +1485,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite43_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite43_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1488,7 +1498,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite44_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite44_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1501,7 +1511,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite45_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite45_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1514,7 +1524,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite23_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite23_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1527,7 +1537,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite46_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite46_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1540,7 +1550,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite23_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite23_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1553,7 +1563,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite47_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite47_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1566,7 +1576,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite48_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite48_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1579,7 +1589,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite49_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite49_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1592,7 +1602,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite50_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite50_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1605,7 +1615,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite51_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite51_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1618,7 +1628,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite52_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite52_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1631,7 +1641,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite53_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite53_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1644,7 +1654,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite54_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite54_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1657,7 +1667,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite55_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite55_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1670,7 +1680,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite56_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite56_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1683,7 +1693,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite57_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite57_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1696,7 +1706,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite58_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite58_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1709,7 +1719,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite59_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite59_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1722,7 +1732,7 @@ function transform(d) {
                               <td>{{ reactionsmeta.metabolite60_id }}</td>
                               {% for metabolite in metabolites %}
                                   {% if metabolite.id == reactionsmeta.metabolite60_id %}
-                              <td>{{ metabolite.name }}</td>
+                              <td><a href="{{ metabolite.get_absolute_url }}">{{ metabolite.name }}</a></td>
                                       <td>{{ metabolite.compartment }}</td>
                                       <td>{{ metabolite.charge }}</td>
                                       <td>{{ metabolite.formula }}</td>
@@ -1735,6 +1745,8 @@ function transform(d) {
                   </div>
                </div>
                </div>
+        </div>
+
 
 {% endblock %}
 

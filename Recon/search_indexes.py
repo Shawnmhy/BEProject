@@ -1,6 +1,5 @@
-import datetime
 from haystack import indexes
-from Recon.models import Metabolites, Genes, Reactions, Meta2
+from Recon.models import Metabolites, Genes, Reactions
 
 
 class GenesIndex(indexes.SearchIndex, indexes.Indexable):

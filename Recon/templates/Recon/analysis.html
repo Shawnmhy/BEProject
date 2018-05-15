@@ -1,0 +1,13 @@
+{% extends 'Recon/Base.html' %}
+{% load static %}
+{% block title %}Online Analysis{% endblock %}
+{% block body %}
+    <div align="center">
+<h2>Step 3: Get your analysis</h2>
+    <div align="center">
+        {% for list in a1 %}
+    <h5><br>{{ list }}</h5>
+{% endfor %}
+    </div>
+    </div>
+{% endblock %}

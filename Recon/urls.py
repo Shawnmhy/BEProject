@@ -27,8 +27,21 @@ urlpatterns = [
 
     re_path(r'^search/$', views.search, name='search'),
 
-    #path(r'^search/', views.search, name='search_result')
+    #Generate combine graph
 
-    #detail_metabolites
-    #re_path(r'^/(?P<pk>\w+)/$', views.MetaboliteView.as_view(), name='metabolites'),
+    path(r'^search/', views.search, name='search_result'),
+
+    path('', views.HomepageView.as_view(success_url='/Recon/'), name='feedback'),
+
+    #File Upload
+
+    re_path(r'^upload/$', views.upload, name='upload'),
+
+    #step 2 set constraints
+    re_path(r'^upload/set_constraints/$', views.constraints, name='set_constraints'),
+
+    #step_3, online analysis
+    re_path(r'^upload/set_constraints/analysis/$', views.analysis, name='analysis'),
+
+
 ]

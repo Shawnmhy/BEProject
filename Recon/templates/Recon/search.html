@@ -10,6 +10,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
+  <style>
+	.container {
+            display: flex;
+	}
+	.main {
+            flex-grow: 0;
+	    height: 300px;
+	}
+	.left {
+	    order: -2;
+	    flex: 0 1 300px;
+	    margin-right: 40px;
+	    height: 300px;
+	}
+	.right {
+	    flex: 0 1 100px;
+            margin-left: 20px;
+	    height: 300px;
+	}
+    </style>
 <body>
 <nav class = "navbar navbar-inverse">
     <div class = "container-fluid">
@@ -54,14 +74,38 @@
         </div>
     </div>
 </nav>
-{% if result_2 %}
-    Results for reactions
+<div class="container">
+<div class="left">
+  {% if result_2 %}
+ <h2>Results for reactions:</h2>
 {% for result in result_2 %}
- <p>
-
-     <a href="{{ result.get_absolute_url }}">{{ result.id }}</a>
- </p>
+ <h3>
+     <a href="{{ result.get_absolute_url }}" target="_blank">{{ result.id }}</a>
+ </h3>
 {% endfor %}
 {% endif %}
+</div>
+<div class="main">
+    {% if result_1 %}
+<h2>Results for metabolites:</h2>
+    {% for result in result_1 %}
+       <h3>
+           <a href="{{ result.get_absolute_url }}" target="_blank">{{ result.id }}</a>
+       </h3>
+{% endfor %}
+{% endif %}
+</div>
+<div class="right">
+    {% if result_3 %}
+<h2>Results for genes:</h2>
+{% for result in result_3 %}
+<h3>
+    <a href="{{ result.get_absolute_url }}" target="_blank">{{ result.id }}</a>
+</h3>
+{% endfor %}
+{% endif %}
+</div>
+</div>
+
 </body>
 

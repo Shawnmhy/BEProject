@@ -1,0 +1,67 @@
+{% extends 'Recon/Base.html' %}
+{% load static %}
+{% block title %}Set Constraints{% endblock %}
+{% block body %}
+    <div align="center">
+<h2>Step 2: Set your constraints</h2>
+    </div>
+    <div align="center">
+    <h3>Please select the reaction you want to analyze: </h3>
+ <h4><form action="" method="POST">
+    <select name="selectobject">
+  <option value ="">12DHCHOLt</option>
+  <option value ="">2AMADPTm</option>
+  <option value ="">2HATVLACthc</option>
+  <option value ="">---------------</option>
+
+   </select>
+ </form></h4>
+    </div>
+    <br>
+    <div align="center">
+    <h3>Please download the Gurobi model template: </h3>
+        {% load staticfiles %}
+        <br><h3><a href="{% static "template/12DHCHOLt.lp" %}">12DHCHOLt</a></h3>
+        <br><h3><a href="{% static "template/12DHCHOLt.lp" %}">2AMADPTm</a></h3>
+        <br></be><h3><a href="{% static "template/12DHCHOLt.lp" %}">2HATVLACthc</a></h3>
+
+    </div>
+    <br>
+    <div class="row" align="center">
+        <h3>Please upload the Gurobi model with constraints:</h3>
+
+      <div class="col-md-8 col-md-offset-2">{% csrf_token %}
+          <h4><form class="form-inline" role="form"  method="post" enctype="multipart/form-data" accept-charset="utf-8">{% csrf_token %}
+              {% csrf_token %}
+              <div class="form-group" align="center">
+                  <input type="file" name="file" align="center">
+              </div>
+              <br>
+              <br><div class="form-group">
+                  <input type="submit" value="Generate Result">
+              </div>
+          </form></h4>
+      </div>
+    </div>
+    <br>
+      <div align="center"> <h3>Get your simulation result: </h3>
+</div>
+    <br>
+ <div align="center" style="border: solid; background-color: #fafafa" class="col-md-8 col-md-offset-2">
+ <div style="float:left" align="justify">
+{% for list in a2 %}
+    <h5><br>{{ list }}</h5>
+    {% endfor %}
+ </div>
+    <div align="left" style="float: right;border-left:dashed">
+    {% for list in a1 %}
+    <h5><br>{{ list }}</h5>
+    {% endfor %}
+    </div>
+
+    </div>
+    </div>
+    <br>
+    <br>
+
+{% endblock %}

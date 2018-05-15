@@ -1,0 +1,1226 @@
+
+Gurobi 8.0.0 (mac64, Python) logging started Sun May 13 15:57:14 2018
+
+
+Gurobi 8.0.0 (mac64, Python) logging started Sun May 13 15:59:25 2018
+
+Academic license - for non-commercial use only
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+
+Gurobi 8.0.0 (mac64, Python) logging started Sun May 13 17:20:16 2018
+
+Academic license - for non-commercial use only
+
+Gurobi 8.0.0 (mac64, Python) logging started Sun May 13 17:22:27 2018
+
+Academic license - for non-commercial use only
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+Read LP format model from file /Library/gurobi800/mac64/examples/data/coins.lp
+Reading time = 0.01 seconds
+: 4 rows, 9 columns, 16 nonzeros
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+Optimize a model with 4 rows, 9 columns and 16 nonzeros
+Variable types: 4 continuous, 5 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [6e-02, 7e+00]
+  Objective range  [1e-02, 1e+00]
+  Bounds range     [5e+01, 1e+03]
+  RHS range        [0e+00, 0e+00]
+Found heuristic solution: objective -0.0000000
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolved: 3 rows, 4 columns, 9 nonzeros
+Variable types: 0 continuous, 4 integer (0 binary)
+
+Root relaxation: objective 1.134615e+02, 2 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  113.46154    0    1   -0.00000  113.46154      -     -    0s
+H    0     0                     113.4500000  113.46154  0.01%     -    0s
+
+Explored 1 nodes (2 simplex iterations) in 0.01 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 113.45 -0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.134500000000e+02, best bound 1.134600000000e+02, gap 0.0088%
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Out of range for parameter value ObjNumber
+Error: it isn't a multi-objective model
+Read LP format model from file /Library/gurobi800/mac64/examples/data/coins.lp
+Reading time = 0.01 seconds
+: 4 rows, 9 columns, 16 nonzeros
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+No solution available
+Error: it isn't a multi-objective model
+No solution available
+Optimize a model with 4 rows, 9 columns and 16 nonzeros
+Variable types: 4 continuous, 5 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [6e-02, 7e+00]
+  Objective range  [1e-02, 1e+00]
+  Bounds range     [5e+01, 1e+03]
+  RHS range        [0e+00, 0e+00]
+Found heuristic solution: objective -0.0000000
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolved: 3 rows, 4 columns, 9 nonzeros
+Variable types: 0 continuous, 4 integer (0 binary)
+
+Root relaxation: objective 1.134615e+02, 2 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0  113.46154    0    1   -0.00000  113.46154      -     -    0s
+H    0     0                     113.4500000  113.46154  0.01%     -    0s
+
+Explored 1 nodes (2 simplex iterations) in 0.01 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 113.45 -0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.134500000000e+02, best bound 1.134600000000e+02, gap 0.0088%
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Out of range for parameter value ObjNumber
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Out of range for parameter value ObjNumber
+Error: it isn't a multi-objective model
+Optimize a model with 4 rows, 9 columns and 16 nonzeros
+Variable types: 4 continuous, 5 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [6e-02, 7e+00]
+  Objective range  [1e-02, 1e+00]
+  Bounds range     [5e+01, 1e+03]
+  RHS range        [0e+00, 0e+00]
+Presolved: 3 rows, 4 columns, 9 nonzeros
+
+Continuing optimization...
+
+
+Explored 1 nodes (2 simplex iterations) in 0.00 seconds
+Thread count was 8 (of 8 available processors)
+
+Solution count 2: 113.45 -0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.134500000000e+02, best bound 1.134600000000e+02, gap 0.0088%
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Out of range for parameter value ObjNumber
+Error: it isn't a multi-objective model
+
+Gurobi 8.0.0 (mac64, Python) logging started Sun May 13 21:55:55 2018
+
+Academic license - for non-commercial use only
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/coins.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Freed default Gurobi environment
+
+Gurobi 8.0.0 (mac64, Python) logging started Mon May 14 14:24:24 2018
+
+Academic license - for non-commercial use only
+Freed default Gurobi environment
+
+Gurobi 8.0.0 (mac64, Python) logging started Mon May 14 16:22:52 2018
+
+Academic license - for non-commercial use only
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Freed default Gurobi environment
+
+Gurobi 8.0.0 (mac64, Python) logging started Mon May 14 16:34:41 2018
+
+Academic license - for non-commercial use only
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.01s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Out of range for parameter value ObjNumber
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Out of range for parameter value ObjNumber
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Out of range for parameter value ObjNumber
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Out of range for parameter value ObjNumber
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Error: it isn't a multi-objective model
+Out of range for parameter value ObjNumber
+Error: it isn't a multi-objective model
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+
+Loaded MIP start with objective -1e+100
+
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+
+Gurobi 8.0.0 (mac64, Python) logging started Mon May 14 16:54:09 2018
+
+Academic license - for non-commercial use only
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.01 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.01 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Freed default Gurobi environment
+
+Gurobi 8.0.0 (mac64, Python) logging started Mon May 14 17:33:36 2018
+
+Academic license - for non-commercial use only
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.01 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Freed default Gurobi environment
+
+Gurobi 8.0.0 (mac64, Python) logging started Mon May 14 17:39:47 2018
+
+Academic license - for non-commercial use only
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.01 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.01 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.00 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%
+Warning: unknown variable '12dhcol_c' in bounds section
+Warning: Numeric variable name in LP file ('12dhchol_c') - often the result
+         of a constant term in the left-hand side of a constraint.
+
+Read LP format model from file /Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp
+Reading time = 0.01 seconds
+: 1 rows, 5 columns, 4 nonzeros
+Optimize a model with 1 rows, 5 columns and 4 nonzeros
+Variable types: 1 continuous, 4 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e+02, 1e+03]
+  RHS range        [2e+03, 2e+03]
+Presolve removed 1 rows and 5 columns
+Presolve time: 0.00s
+Presolve: All rows and columns removed
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Solution count 1: 2890 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 2.890000000000e+03, best bound 2.890000000000e+03, gap 0.0000%

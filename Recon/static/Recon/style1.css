@@ -1,0 +1,11 @@
+body{
+    background: white url("images/white.jpg");
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar-brand{
+    font-family: 'Abril+Fatface|Roboto', cursive;
+}
