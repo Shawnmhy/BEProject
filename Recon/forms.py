@@ -1,8 +1,4 @@
-from django import forms
 from .models import Feedback
-
-
-# our new form
 from django import forms
 
 

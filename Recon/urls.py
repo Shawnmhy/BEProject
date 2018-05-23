@@ -17,8 +17,6 @@ urlpatterns = [
     # metabolite_index
     re_path(r'^metabolite/$', views.MetaboliteIndex.as_view(), name = 'metabolite_index'),
 
-    re_path(r'^graph/$', views.GraphView.as_view(), name ='graph'),
-
     # gene_index
     re_path(r'^gene/$', views.GeneIndex.as_view(), name = 'gene_index'),
 
@@ -40,8 +38,6 @@ urlpatterns = [
     #step 2 set constraints
     re_path(r'^upload/set_constraints/$', views.constraints, name='set_constraints'),
 
-    #step_3, online analysis
-    re_path(r'^upload/set_constraints/analysis/$', views.analysis, name='analysis'),
 
 
 ]

@@ -12,6 +12,7 @@ from django.conf import settings
 import sys
 from gurobipy import *
 import numpy
+from libsbml import *
 class HomepageView(generic.TemplateView):
     template_name = 'Recon/HomePage.html'
     context_object_name = 'Reactions_object'
@@ -109,10 +110,6 @@ class GeneDetail(generic.DetailView):
     template_name = 'Recon/gene_detail.html'
 
 
-class GraphView(generic.ListView):
-    model = Reactionsmeta
-    template_name = 'Recon/Graph.html'
-
 
 def search(request):
     q = request.GET.get("q")
@@ -155,27 +152,42 @@ def constraints(request):
     if request.method == "POST":
         handle_upload_file(request.FILES['file'], str(request.FILES['file']))
         filename = request.FILES['file'].name
-        if filename == "12DHCHOLt.lp":
-           gurobi = gurobipy.read("/Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp")
+        if filename == "3HAO.lp":
+           gurobi = gurobipy.read("/Users/mihaoyang/Desktop/BEProject7/Recon/File/3HAO.lp")
            with Capturing() as output:
                gurobi.optimize()
-           model = io.read_sbml_model("/Users/mihaoyang/Desktop/BEProject7/Recon/File/Recon3D.xml")
-           model.objective = "12DHCHOLt"
+           model = io.read_sbml_model("/Users/mihaoyang/Desktop/BEProject7/Recon/File/Recon2_2.xml")
+           model.objective = "3HAO"
            with Capturing() as output1:
                model.summary()
                model.optimize().objective_value
            context = dict(a1=output, a2=output1)
+           return render(request, 'Recon/set_constraints.html', context)
+
         if filename == "2AMADPTm.lp":
             gurobi = gurobipy.read("/Users/mihaoyang/Desktop/BEProject7/Recon/File/2AMADPTm.lp")
             with Capturing() as output:
                 gurobi.optimize()
-            model = io.read_sbml_model("/Users/mihaoyang/Desktop/BEProject7/Recon/File/Recon3D.xml")
+            model = io.read_sbml_model("/Users/mihaoyang/Desktop/BEProject7/Recon/File/Recon2_2.xml")
             model.objective = "2AMADPTm"
             with Capturing() as output1:
                 model.summary()
                 model.optimize().objective_value
             context = dict(a1=output, a2=output1)
-        return render(request, 'Recon/set_constraints.html', context)
+            return render(request, 'Recon/set_constraints.html', context)
+
+        if filename == "2HATVLACthc.lp":
+            gurobi = gurobipy.read("/Users/mihaoyang/Desktop/BEProject7/Recon/File/2HATVLACthc.lp")
+            with Capturing() as output:
+                gurobi.optimize()
+            model = io.read_sbml_model("/Users/mihaoyang/Desktop/BEProject7/Recon/File/Recon2_2.xml")
+            model.objective = "2HATVLACthc"
+            with Capturing() as output1:
+                model.summary()
+                model.optimize().objective_value
+            context = dict(a1=output, a2=output1)
+
+            return render(request, 'Recon/set_constraints.html', context)
     return render(request,'Recon/set_constraints.html')
 
 
@@ -188,15 +200,4 @@ def handle_upload_file(file, filename):
             destination.write(chunk)
 
 
-def analysis(request):
-    model = io.read_sbml_model("/Users/mihaoyang/Desktop/BEProject7/Recon/File/Recon3D.xml")
-    solution = model.optimize()
-    value = solution.objective_value
 
-    fluxes = solution.fluxes
-#    if filename == "2AMADPTm.lp" :
- #       gurobi = gurobipy.read("/Users/mihaoyang/Desktop/BEProject7/Recon/File/12DHCHOLt.lp")
-    with Capturing() as output:
-        model.optimize()
-    context = dict(a1=output, a2=value, a3=fluxes)
-    return render(request, 'Recon/analysis.html', context)
